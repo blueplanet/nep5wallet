@@ -15,6 +15,7 @@
 		3D2F721C203CBA4800A90230 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F721A203CBA4800A90230 /* LaunchScreen.storyboard */; };
 		3D2F7227203CBA4800A90230 /* nep5walletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F7226203CBA4800A90230 /* nep5walletTests.swift */; };
 		3D2F7232203CBA4800A90230 /* nep5walletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F7231203CBA4800A90230 /* nep5walletUITests.swift */; };
+		3D2F7243203CDE1400A90230 /* NeoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2F7242203CDE1400A90230 /* NeoSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3D2F722D203CBA4800A90230 /* nep5walletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nep5walletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D2F7231203CBA4800A90230 /* nep5walletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nep5walletUITests.swift; sourceTree = "<group>"; };
 		3D2F7233203CBA4800A90230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D2F7242203CDE1400A90230 /* NeoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NeoSwift.framework; path = Carthage/Build/iOS/NeoSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D2F7243203CDE1400A90230 /* NeoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +86,7 @@
 				3D2F7225203CBA4800A90230 /* nep5walletTests */,
 				3D2F7230203CBA4800A90230 /* nep5walletUITests */,
 				3D2F720D203CBA4800A90230 /* Products */,
+				3D2F723F203CD72100A90230 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +132,14 @@
 			path = nep5walletUITests;
 			sourceTree = "<group>";
 		};
+		3D2F723F203CD72100A90230 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D2F7242203CDE1400A90230 /* NeoSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +150,7 @@
 				3D2F7208203CBA4800A90230 /* Sources */,
 				3D2F7209203CBA4800A90230 /* Frameworks */,
 				3D2F720A203CBA4800A90230 /* Resources */,
+				3D2F7244203CDE6400A90230 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -256,6 +269,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D2F7244203CDE6400A90230 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/NeoSwift.framework",
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks ";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D2F7208203CBA4800A90230 /* Sources */ = {
@@ -431,6 +462,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = nep5wallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "re-work.io.nep5wallet";
@@ -445,6 +480,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = nep5wallet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "re-work.io.nep5wallet";
